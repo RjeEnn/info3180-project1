@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block main %}
+<h1 class="page-header">Add New Property</h1>
+
+{% include 'flash_messages.html' %}
+
+<form
+  method="post"
+  action="{{ url_for('property') }}"
+  enctype="multipart/form-data"
+>
+  {{ upload.csrf_token }}
+
+  <div class="property-form">
+    <div class="form-title">{{ upload.title.label }} {{ upload.title }}</div>
+    <div class="form-description">
+      {{ upload.description.label }} {{ upload.description }}
+    </div>
+    <div class="form-bedrooms">
+      {{ upload.noBedrooms.label }} {{ upload.noBedrooms }}
+    </div>
+    <div class="form-bathrooms">
+      {{ upload.noBathrooms.label }} {{ upload.noBathrooms }}
+    </div>
+    <div class="form-price">{{ upload.price.label }} {{ upload.price }}</div>
+    <div class="form-type">
+      {{ upload.propertyType.label }} {{ upload.propertyType }}
+    </div>
+    <div class="form-location">
+      {{ upload.location.label }} {{ upload.location }}
+    </div>
+    <div class="form-image">{{ upload.img.label }} {{ upload.img }}</div>
+    <button type="submit" name="submit" class="form-btn">Add Property</button>
+  </div>
+</form>
+{% endblock %}
